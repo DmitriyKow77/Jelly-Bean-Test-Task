@@ -1,6 +1,5 @@
 package info.stepdefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import drivers.jellyButton.JellyButtonPage;
@@ -25,13 +24,13 @@ public class TestStepsJelly {
 
     @And("^I print current url$")
     public void iPrintCurrentUrl() throws Throwable {
-        System.out.println(driver.getCurrentUrl());
+        System.out.println("Current url is: " + driver.getCurrentUrl());
     }
 
     @And("^I save screenshot with name \"([^\"]*)\"$")
-    public void iSaveScreenshotWithName(String sccneshotName) throws Throwable {
+    public void iSaveScreenshotWithName(String screenshotName) throws Throwable {
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        ScreenShotUtil.saveScreenshot(scrFile, sccneshotName);
+        ScreenShotUtil.saveScreenshot(scrFile, screenshotName);
     }
 
     @When("^I Print out all of the upper menu elements names$")

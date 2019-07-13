@@ -35,7 +35,7 @@ public class TestStepsGoogle {
 
     @Then("^I print number of search results$")
     public void iPrintNumberOfSearchResults() throws Throwable {
-        int resultsNumber = googleMainPage.get_search_results().size();
+        final int resultsNumber = googleMainPage.get_search_results().size();
         assertTrue("Search results were empty" ,resultsNumber > 0);
         System.out.println(String.format("Number of search results is %d", resultsNumber));
     }
@@ -43,10 +43,10 @@ public class TestStepsGoogle {
     @And("^I click on first search result$")
     public void iClickOnFirstSearchResult() throws Throwable {
        SearchResult firstResult = googleMainPage.get_search_results().get(0);
-       String linkValue = firstResult.getLinkValue();
+       final String linkValue = firstResult.getLinkValue();
        firstResult.searchTitle().click();
 
-       String redirectUrl = driver.getCurrentUrl();
+       final String redirectUrl = driver.getCurrentUrl();
        assertEquals("Didn't redirect to expected link", redirectUrl, linkValue);
     }
 }
